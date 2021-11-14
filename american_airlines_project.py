@@ -37,7 +37,6 @@ for flight in dummy:
   temp['arrivalTime'] = datetime.datetime.strptime(temp['arrivalTime'][:-10], '%Y-%m-%dT%H:%M:%S')
   dummy2.append(temp)
 
-dummy2
 
 for i in range(len(dummy2)-1):
 
@@ -64,5 +63,4 @@ for i in range(len(dummy2)-1):
       # dummy3 = dummy2.copy()
       if new_flights:
         dummy2[i + 1] = new_flights[0]
-
-dummy2
+        
