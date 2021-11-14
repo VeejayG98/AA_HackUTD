@@ -49,18 +49,14 @@ for i in range(len(dummy2)-1):
       fields = ['flightNumber', 'origin', 'destination', 'departureTime', 'arrivalTime']
       for flight in temp_flights:
         if flight['destination']['code'] == dummy2[i + 1]['destination']['code']:
-          # print(flight)
           temp2 = {k:v for k,v in flight.items() if k in fields}
-          # print(temp2)
           temp2['origin'].pop('location')
           temp2['destination'].pop('location')
           temp2['departureTime'] = datetime.datetime.strptime(temp2['departureTime'][:-10], '%Y-%m-%dT%H:%M:%S')
           temp2['arrivalTime'] = datetime.datetime.strptime(temp2['arrivalTime'][:-10], '%Y-%m-%dT%H:%M:%S')
-          # print(temp2.keys())
           new_flights.append(temp2)
+          
       print(new_flights)
 
-      # dummy3 = dummy2.copy()
       if new_flights:
         dummy2[i + 1] = new_flights[0]
-        
